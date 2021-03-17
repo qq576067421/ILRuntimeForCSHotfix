@@ -1,0 +1,3 @@
+# ILRuntimeForCSHotfix
+ILRuntime修改版，适配CSHotfix的脚本系统
+目前仅仅是需要把该库叠加到CSHotfix框架对应目录即可
