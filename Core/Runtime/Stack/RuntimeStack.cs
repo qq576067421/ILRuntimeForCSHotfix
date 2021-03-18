@@ -90,14 +90,16 @@ namespace CSHotFix.Runtime.Stack
             res = new StackFrame();
             res.LocalVarPointer = esp;
             res.Method = method;
-#if DEBUG
-            res.Address = new IntegerReference();
-            for (int i = 0; i < method.LocalVariableCount; i++)
-            {
-                var p = Add(esp, i);
-                p->ObjectType = ObjectTypes.Null;
-            }
-#endif
+			
+//lcl注释掉下面的内容 他会影响性能测试
+//#if DEBUG
+//            res.Address = new IntegerReference();
+//            for (int i = 0; i < method.LocalVariableCount; i++)
+//            {
+//                var p = Add(esp, i);
+//                p->ObjectType = ObjectTypes.Null;
+//            }
+//#endif
             res.BasePointer = method.LocalVariableCount > 0 ? Add(esp, method.LocalVariableCount) : esp;
             res.ManagedStackBase = managedStack.Count;
             res.ValueTypeBasePointer = valueTypePtr;
